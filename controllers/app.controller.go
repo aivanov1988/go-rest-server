@@ -9,5 +9,5 @@ import (
 )
 
 func GetAppVersion(c *gin.Context) {
-	c.IndentedJSON(http.StatusOK, responses.VersionResponse{Version: "0.0.1"})
+	c.JSON(http.StatusOK, responses.VersionResponse{Version: "0.0.1"})
 }
