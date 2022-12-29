@@ -13,14 +13,14 @@ import (
 func GetArticlesList(c *gin.Context) {
 	articleList, err := repositories.ReadAllArticles()
 	if err != nil {
-		c.String(http.StatusInternalServerError, err.Error())
+		c.JSON(http.StatusInternalServerError, helpers.PrepareErrorResponse(err))
 		return
 	}
 	res, err := helpers.TypeConverter[responses.ArticleListResponse](articleList)
 	if err != nil {
-		c.String(http.StatusInternalServerError, err.Error())
+		c.JSON(http.StatusInternalServerError, helpers.PrepareErrorResponse(err))
 		return
 	}
-	resStr := helpers.JsonStringify(res)
-	c.String(http.StatusOK, resStr)
+	//resStr := helpers.JsonStringify(res)
+	c.JSON(http.StatusOK, res)
 }
