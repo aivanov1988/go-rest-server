@@ -6,7 +6,7 @@ import (
 
 func ReadAllArticles() ([]models.Article, error) {
 	var articles []models.Article
-	err := db.Model(&articles).Table("articles").Select()
+	err := db.Model(&articles).Relation("File").Select()
 	if err != nil {
 		return nil, err
 	}

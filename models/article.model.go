@@ -1,11 +1,13 @@
 package models
 
 type Article struct {
-	Id          string
-	Created_at  string
-	Updated_at  string
-	Title       string
-	Description string
-	User_id     string
-	File_id     string
+	tableName   struct{} `pg:"articles"`
+	Id          string   `json:"id"`
+	Created_at  string   `json:"createdAt"`
+	Updated_at  string   `json:"updatedAt"`
+	Title       string   `json:"title"`
+	Description string   `json:"description"`
+	User_id     string   `json:"userId"`
+	File_id     string   `json:"fileId"`
+	File        File     `json:"file" pg:"rel:has-one"`
 }
