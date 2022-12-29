@@ -3,6 +3,7 @@ module github.com/aivanov1988/go-rest-server
 go 1.19
 
 require (
+	github.com/aivanov1988/go-custom-json-unmarshal v1.0.0 // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/gin-gonic/gin v1.8.1 // indirect

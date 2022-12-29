@@ -16,11 +16,10 @@ func GetArticlesList(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, helpers.PrepareErrorResponse(err))
 		return
 	}
-	res, err := helpers.TypeConverter[responses.ArticleListResponse](articleList)
+	res, err := helpers.TypeListConverter[responses.ArticleResponse](articleList)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, helpers.PrepareErrorResponse(err))
 		return
 	}
-	//resStr := helpers.JsonStringify(res)
-	c.JSON(http.StatusOK, res)
+	c.JSON(http.StatusOK, helpers.PrepareListResponse(*res))
 }
